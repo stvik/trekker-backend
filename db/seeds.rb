@@ -26,7 +26,7 @@ countries_array.each do |country|
 		currency: country['currencies'][0]['name'],
 		population: country['population'],
 		country_code: country['alpha2Code'],
-		description: 'a country'
+		description: Faker::Lorem.paragraph(sentence_count: 8)
 		)
 end
 
@@ -36,7 +36,7 @@ Country.all.each do |country|
 			name: Faker::Address.city,
 			latitude: Faker::Address.latitude,
 			longitude: Faker::Address.longitude,
-			description: 'This is a city',
+			description: Faker::Lorem.paragraph(sentence_count: 3),
 			capital: false,
 			country_id: country.id
 			)
