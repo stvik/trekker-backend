@@ -1,3 +1,5 @@
+
+
 class CountrySerializer
 
 	def initialize(country_object)
