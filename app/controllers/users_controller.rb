@@ -1,17 +1,22 @@
 class UsersController < ApplicationController
 
 	def index
-		byebug
-		render json: User.all
+		render json: UserSerializer.new(User.all).to_serialized_json
 	end
 
 	def create
 
 		user = User.create(user_params)
 
-		render json: user
+		render json: UserSerializer.new(user).to_serialized_json
 
 	end
+
+	def login
+		user = User.find_by(username: params[:username])
+		render json: UserSerializer.new(user).to_serialized_json
+	end
+
 
 	private
 
