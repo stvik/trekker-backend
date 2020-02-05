@@ -1,13 +1,21 @@
 class UserCountriesController < ApplicationController
 
 	def index
-		render json: UserCountry.all
+		render json: UserCountrySerializer.new(UserCountry.all).to_serialized_json
 	end
 
 	def create
 		uc = UserCountry.create(user_country_params)
 
+		render json: UserCountrySerializer.new(uc).to_serialized_json
+	end
+
+	def destroy
+		uc = UserCountry.find(params[:id])
+		uc.destroy
+
 		render json: uc
+
 	end
 
 	private
