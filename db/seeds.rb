@@ -26,6 +26,7 @@ countries_array.each do |country|
 		currency: country['currencies'][0]['name'],
 		population: country['population'],
 		country_code: country['alpha2Code'],
+		flag: country['flag'],
 		description: Faker::Lorem.paragraph(sentence_count: 8)
 		)
 end

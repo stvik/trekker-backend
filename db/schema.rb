@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_173541) do
     t.string "languages"
     t.string "currency"
     t.integer "population"
+    t.string "flag"
     t.string "country_code"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false

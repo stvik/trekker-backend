@@ -9,8 +9,8 @@ class UserSerializer
 			:include => {
 			:user_countries => {
 				:include => {
-					:country => {:only => [:name, :latitude, :longitude]}},
-				:except => [:created_at, :updated_at, :recommendation, :user_id]}
+					:country => {:only => [:id, :name, :latitude, :longitude, :flag]}},
+				:only => [:visited, :travel_goal, :id]}
 			},
 			:except => [:password, :created_at, :updated_at])
 	end

@@ -8,6 +8,7 @@ class CreateCountries < ActiveRecord::Migration[6.0]
       t.string :languages
       t.string :currency
       t.integer :population
+      t.string :flag
       t.string :country_code
       t.text :description
 
