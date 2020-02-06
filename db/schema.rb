@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_173541) do
+ActiveRecord::Schema.define(version: 2020_02_06_161924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2020_01_28_173541) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "cities_visited"
+    t.string "likes"
+    t.string "dislikes"
+    t.text "must_see"
+    t.text "if_redo"
+    t.text "should_know"
+    t.text "food"
+    t.text "additional_info"
+    t.bigint "user_country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_country_id"], name: "index_reviews_on_user_country_id"
+  end
+
   create_table "user_countries", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "country_id", null: false
@@ -67,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_173541) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "reviews", "user_countries"
   add_foreign_key "user_countries", "countries"
   add_foreign_key "user_countries", "users"
 end
