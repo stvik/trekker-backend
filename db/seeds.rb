@@ -9,49 +9,69 @@
 require 'rest-client'
 require 'faker'
 
-City.destroy_all
-Country.destroy_all
+# UserCountry.destroy_all
 
-countries = RestClient.get('https://restcountries.eu/rest/v2/all')
+# Review.destroy_all
 
-countries_array = JSON.parse(countries)
 
-countries_array.each do |country|
-	Country.create(
-		name: country['name'],
-		continent: country['region'],
-		latitude: country['latlng'][0],
-		longitude: country['latlng'][1],
-		languages: country['languages'][0]['name'],
-		currency: country['currencies'][0]['name'],
-		population: country['population'],
-		country_code: country['alpha2Code'],
-		flag: country['flag'],
-		description: Faker::Lorem.paragraph(sentence_count: 8)
-		)
-end
+# City.destroy_all
 
-Country.all.each do |country|
-	10.times do 
-			City.create(
-			name: Faker::Address.city,
-			latitude: Faker::Address.latitude,
-			longitude: Faker::Address.longitude,
-			description: Faker::Lorem.paragraph(sentence_count: 3),
-			capital: false,
+# Country.destroy_all
+
+# countries = RestClient.get('https://restcountries.eu/rest/v2/all')
+
+# countries_array = JSON.parse(countries)
+
+# countries_array.each do |country|
+# 	Country.create(
+# 		name: country['name'],
+# 		continent: country['region'],
+# 		latitude: country['latlng'][0],
+# 		longitude: country['latlng'][1],
+# 		languages: country['languages'][0]['name'],
+# 		currency: country['currencies'][0]['name'],
+# 		population: country['population'],
+# 		country_code: country['alpha2Code'],
+# 		flag: country['flag'],
+# 		description: Faker::Lorem.paragraph(sentence_count: 8)
+# 		)
+# end
+
+# Country.all.each do |country|
+# 	10.times do 
+# 			City.create(
+# 			name: Faker::Address.city,
+# 			latitude: Faker::Address.latitude,
+# 			longitude: Faker::Address.longitude,
+# 			description: Faker::Lorem.paragraph(sentence_count: 3),
+# 			capital: false,
+# 			country_id: country.id
+# 			)
+
+# 	end	
+
+
+
+# end
+
+countries = Country.select {|c| c.id > 1249}
+
+countries.each do |country|
+	cities = RestClient.get("https://www.triposo.com/api/20190906/location.json?type=city&countrycode=#{country.country_code.downcase}&order_by=-score&count=10&fields=snippet,images,coordinates,score,name&account=8NZ6515A&token=f554jn6k69kxp8zs8myvd9qoiwqr7pi4")
+
+	cities_array = JSON.parse(cities)
+
+	cities_array["results"].each do |city|
+		City.create(
+			name: city["name"],
+			latitude: city["coordinates"]["latitude"],
+			longitude: city["coordinates"]["longitude"],
+			description: city["snippet"],
+			score: city['score'],
+			image: city["images"][0]["source_url"],
 			country_id: country.id
-			)
 
-	end	
-
-	capital = country.cities.last
-	capital.update_attributes(:capital => true)
-
+			 )
+	end
 end
-
-
-
-
-
-
 0

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_161924) do
+ActiveRecord::Schema.define(version: 2020_02_07_161916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 2020_02_06_161924) do
     t.float "longitude"
     t.text "description"
     t.bigint "country_id", null: false
-    t.boolean "capital"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.float "score"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_161924) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "background"
   end
 
   create_table "reviews", force: :cascade do |t|
