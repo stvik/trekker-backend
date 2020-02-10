@@ -57,7 +57,7 @@ require 'faker'
 countries = Country.select {|c| c.id > 1249}
 
 countries.each do |country|
-	cities = RestClient.get("https://www.triposo.com/api/20190906/location.json?type=city&countrycode=#{country.country_code.downcase}&order_by=-score&count=10&fields=snippet,images,coordinates,score,name&account=8NZ6515A&token=f554jn6k69kxp8zs8myvd9qoiwqr7pi4")
+	cities = RestClient.get("https://www.triposo.com/api/20190906/location.json?type=city&countrycode=#{country.country_code.downcase}&order_by=-score&count=10&fields=snippet,images,coordinates,score,name&account=&token=")
 
 	cities_array = JSON.parse(cities)
 

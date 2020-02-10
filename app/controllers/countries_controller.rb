@@ -4,7 +4,10 @@ class CountriesController < ApplicationController
 
 
 	def index
-		countries = Country.all
+		# Country.match_background
+		# Country.get_description
+		countries = Country.all.sort_by{|country| country.id}
+
 		render json: CountrySerializer.new(countries).to_serialized_json
 	end
 

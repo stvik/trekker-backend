@@ -46,4 +46,5 @@ gem 'rest-client'
 
 gem 'dotenv-rails'
 
+gem 'wikitext'
 
