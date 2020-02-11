@@ -7,6 +7,9 @@ class Country < ApplicationRecord
 	has_many :users, through: :user_countries
 	has_many :reviews, through: :user_countries
 
+	
+	
+
 	def self.get_description
 
 		Country.all.each do |country|

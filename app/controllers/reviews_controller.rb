@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
 
 	def index
-
-		render json: Review.all
+		if params[:user_id]
+			reviews = Review.all.select{|review| review.user.id == params[:user_id].to_i}
+		else
+			reviews = Review.all
+		end
+		render json: ReviewSerializer.new(reviews).to_serialized_json
 	end
 
 	def create
