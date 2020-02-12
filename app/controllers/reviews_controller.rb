@@ -11,7 +11,14 @@ class ReviewsController < ApplicationController
 
 	def create
 		review = Review.create(review_params)
-		render json: review
+		render json: ReviewSerializer.new(review).to_serialized_json
+	end
+
+	def destroy
+		review = Review.all.find(params[:id])
+		review.destroy
+
+		render json: ReviewSerializer.new(review).to_serialized_json
 	end
 
 	private

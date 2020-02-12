@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reviews, only: [:index, :create]
+  resources :reviews, only: [:index, :create, :destroy]
   resources :users, only: [:index, :create, :update]
   get '/users/login', to: 'users#login', as: 'login'
   resources :user_countries, only: [:index, :create, :destroy]
