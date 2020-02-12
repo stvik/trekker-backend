@@ -7,8 +7,8 @@ class Country < ApplicationRecord
 	has_many :users, through: :user_countries
 	has_many :reviews, through: :user_countries
 
-	
-	
+
+
 
 	def self.get_description
 
@@ -171,10 +171,10 @@ class Country < ApplicationRecord
 			{id: 1123, background: 'https://images.unsplash.com/photo-1562835156-2f62f161b32c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80'},
 			{id: 1124, background: 'https://images.unsplash.com/photo-1522054541898-adc6abd570e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80'},
 			{id: 1125, background: 'https://images.unsplash.com/photo-1575285272587-a2523237d6b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'},
-			{id: 1127, background: 'https://images.unsplash.com/photo-1529002045502-d3c5024f8e24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'},
-			{id: 1128, background: 'https://images.unsplash.com/photo-1512424113276-fa9f6a112384?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'},
-			{id: 1129, background: 'https://images.unsplash.com/photo-1533939664942-173b7df71238?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80'},
-			{id: 1130, background: 'https://images.unsplash.com/photo-1456051580611-e193e8fb2cc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80'},
+			{id: 1128, background: 'https://images.unsplash.com/photo-1529002045502-d3c5024f8e24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'},
+			{id: 1129, background: 'https://images.unsplash.com/photo-1512424113276-fa9f6a112384?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'},
+			{id: 1130, background: 'https://images.unsplash.com/photo-1533939664942-173b7df71238?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80'},
+			{id: 1131, background: 'https://images.unsplash.com/photo-1456051580611-e193e8fb2cc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1373&q=80'},
 			{id: 1133, background: 'https://images.unsplash.com/photo-1577917704494-b4e7a6c28b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'},
 			{id: 1134, background: 'https://images.unsplash.com/photo-1558694440-03ade9215d7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'},
 			{id: 1135, background: 'https://images.unsplash.com/photo-1516344015312-67c699ad7761?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1434&q=80'},

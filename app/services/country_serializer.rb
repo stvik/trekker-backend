@@ -7,7 +7,7 @@ class CountrySerializer
 	end
 
 	def to_serialized_json
-		@country.to_json( :only => [:id, :name, :latitude, :longitude, :flag, :background, :country_code])
+		@country.to_json( :only => [:id, :name, :latitude, :longitude, :flag, :background, :country_code, :warning])
 
 	end
 
