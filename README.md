@@ -1,6 +1,6 @@
 # trekker-backend
 
-Bökmarke is a book tracking Rails application. Search for books using the Google Books API and add them to your reading list. Once you've completed a book, leave a review for other users letting them know what you think.
+Trekker is a rails and react/redux application. Get travel information about every country in the world by searching by name or exploring a random one. Find information such as top cities to visit, travel advisements, and basic information such as currency and population. All information was gathered using Triposo API, REST Countries, and Wikivoyage API. Once you have created a profile, you can add countries to your visited list or to your travel goals. If you've visited a country, you're free to leave a review.
 
 ## Installation
 Dependencies
